@@ -8,6 +8,6 @@ class MealDB::GetRecipes < ApplicationService
   def call
     # sends a http request to the meal db api and returns a list of recipes
     response = HTTParty.get("https://www.themealdb.com/api/json/v1/1/filter.php?c=#{@category_name}")
-    response['meals']
+    response['meals'].present? ? response['meals'] : nil
   end
 end

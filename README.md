@@ -1,5 +1,16 @@
 # RecAPI README
 
+## Setup
+
+**Setup**
+
+The application requires Ruby 3.2.2 to be installed.
+
+1. Run `bundle install` to install the required gems
+2. Run `bundle exec rails s` to start the rails server. There is no database setup needed for this application.
+3. Run the test suite using `bundle exec rspec`
+4. There is also recipes.http file in the root directory which can be used to call both the application endpoints and MealDB endpoints
+
 ## Task approach
 
 **Installing Gems**
@@ -12,4 +23,6 @@ The first endpoint I worked on was the categories (/api/v1/categories). I nested
 
 **Recipes controller**
 
-I felt it didn't make sense to nest the recipes endpoint in the categories like /api/v1/categories/:id/recipes because its not possible to get the recipes from the MealDB API via the recipe id, only the name. I could have made 2 calls to the API, the first to get the category name by calling the categories endpoint and filtering by the :id to get the name and then getting the recipes using the name and returning that, however, I felt that was overcomplicating things. I decided category_name could be a param in the recipes and endpoint and it would require just one call to the MealDB API.
+I felt it didn't make sense to nest the recipes endpoints in the categories like /api/v1/categories/:id/recipes because its not possible to get the recipes from the MealDB API via the category id, only the category name. I could have made 2 calls to the API, the first to get the category name by calling the categories endpoint and filtering by the :id to get the name and then getting the recipes using the name and returning that, however, I felt that was overcomplicating things. I decided category_name could be a param in the recipes index endpoint and it would require just one call to the MealDB API.
+
+For the recipes show endpoint I created a seperate view in the RecipeBlueprint which would include the additional fields that are not available in the index method. I decided to concatonate the measure and ingredient name fields into an ingredients array in this view. I also added an error message when a user tried to list the recipes for a category that didn't exist as I felt this was more helpful that just returning an empty list.

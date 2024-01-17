@@ -1,0 +1,31 @@
+### Localhost
+
+curl -X GET --location "http://localhost:3000/api/v1/categories" \
+    -H "accept: application/json"
+
+###
+
+curl -X GET --location "http://localhost:3000/api/v1/recipes?category_name=Chicken" \
+    -H "accept: application/json"
+
+###
+
+curl -X GET --location "http://localhost:3000/api/v1/recipes/52934" \
+    -H "accept: application/json"
+
+### MealDB
+
+curl -X GET --location "https://www.themealdb.com/api/json/v1/1/categories.php" \
+    -H "accept: application/json"
+
+###
+
+curl -X GET --location "https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef" \
+    -H "accept: application/json"
+
+###
+
+curl -X GET --location "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52874" \
+    -H "accept: application/json"
+
+###
