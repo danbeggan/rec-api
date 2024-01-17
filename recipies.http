@@ -1,0 +1,12 @@
+curl -X GET --location "https://www.themealdb.com/api/json/v1/1/categories.php" \
+    -H "accept: application/json"
+
+###
+
+curl -X GET --location "https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef" \
+    -H "accept: application/json"
+
+###
+
+curl -X GET --location "https://www.themealdb.com/api/json/v1/1/lookup.php?i=52874" \
+    -H "accept: application/json"
