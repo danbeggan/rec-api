@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Api::V1::Recipes", type: :request do
-  context 'when the category name is provided' do
-    describe 'GET /api/v1/recipes' do
+  describe 'GET /api/v1/recipes' do
+    context 'when the category name is provided' do
       before do
         stub_request(:get, "https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef").to_return(status: 200, body: File.read('spec/fixtures/recipes.json'), headers: { 'Content-Type' => 'application/json' })
         get '/api/v1/recipes', params: { category_name: 'Beef' }

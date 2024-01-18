@@ -52,7 +52,7 @@ class RecipeBlueprint < Blueprinter::Base
       object['dateModified']
     end
 
-    field :strCreativeCommonsConfirmed do |object|
+    field :creative_commons_confirmed do |object|
       object['strCreativeCommonsConfirmed']
     end
 

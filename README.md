@@ -2,8 +2,6 @@
 
 ## Setup
 
-**Setup**
-
 The application requires Ruby 3.2.2 to be installed.
 
 1. Run `bundle install` to install the required gems
